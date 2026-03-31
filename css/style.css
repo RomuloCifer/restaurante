@@ -8,6 +8,9 @@
   --card-radius:14px;
   --max-width:1100px;
   --accent-soft: rgba(184,135,47,0.12);
+  /* default panel/border tint (overridden by JS on deity selection) */
+  --panel-border: rgba(7,26,43,0.04);
+  --accent-highlight: rgba(184,135,47,0.08);
   /* story text/theme defaults */
   --story-title-color: var(--deep);
   --story-text-color: var(--deep);
@@ -16,8 +19,17 @@
   --story-text-shadow: none;
 }
 *{box-sizing:border-box}
-body{font-family: 'Karla', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:var(--deep)}
-.app{display:flex; min-height:100vh}
+body{
+  font-family: 'Karla', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin:0;
+  /* base parchment color plus a subtle directional tint that changes per-deus via --accent-highlight */
+  background: var(--bg);
+  background-image: linear-gradient(135deg, var(--accent-highlight), rgba(255,255,255,0) 60%);
+  background-repeat: no-repeat;
+  transition: background-image 360ms ease, background-color 360ms ease;
+  color:var(--deep)
+}
+.app{display:flex; min-height:100vh; position:relative; z-index:1}
 
 /* left decorative area removed */
 
@@ -28,7 +40,7 @@ body{font-family: 'Karla', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvet
 .hero .subtitle{color:var(--muted); margin:8px 0 0}
 
 .panel{display:flex; gap:24px; width:100%; max-width:var(--max-width); margin-top:18px}
-.menu{flex:0 0 48%; background:var(--marble); border-radius:var(--card-radius); padding:20px 22px; box-shadow:0 10px 30px rgba(7,26,43,0.06); border:1px solid rgba(7,26,43,0.04); position:relative; overflow:hidden}
+.menu{flex:0 0 48%; background:var(--marble); border-radius:var(--card-radius); padding:20px 22px; box-shadow:0 10px 30px rgba(7,26,43,0.06); border:1px solid var(--panel-border, rgba(7,26,43,0.04)); position:relative; overflow:hidden}
 .menu::before{ content: ''; position:absolute; inset:8px; border-radius:calc(var(--card-radius) - 8px); pointer-events:none; border:1px solid var(--accent-soft)}
 .story{
   flex:1;
@@ -38,8 +50,8 @@ body{font-family: 'Karla', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvet
   padding:12px;
   display:flex;
   flex-direction:column;
-  /* faint border just to have a subtle separation */
-  border: 1px solid rgba(7,26,43,0.03);
+  /* faint border just to have a subtle separation (uses --panel-border) */
+  border: 1px solid var(--panel-border, rgba(7,26,43,0.03));
 }
 
 /* make story area scrollable and taller so user can roll through multiple deities
@@ -101,13 +113,13 @@ body{font-family: 'Karla', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvet
 @keyframes athena-glow{ 0%{opacity:0; transform:scale(0.9)} 40%{opacity:1; transform:scale(1.02)} 100%{opacity:0; transform:scale(1.12)} }
 
 /* Ensure effects appear above content but under floating controls */
-.app{ position:relative }
+.app{ position:relative; z-index:1 }
 
 
 .menu h2{font-family:'Cinzel', serif; margin:0 0 12px 0; color:var(--deep); font-weight:700; letter-spacing:0.6px}
 .menu h2 + .meta{ margin-bottom:10px; color:var(--muted)}
 .menu .section-title{font-weight:700; color:var(--deep); margin-top:16px; font-size:0.98rem; text-transform:uppercase; letter-spacing:1px}
-.dish, .drink{display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid rgba(7,26,43,0.04)}
+.dish, .drink{display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--panel-border, rgba(7,26,43,0.04))}
 .dish .meta, .drink .meta{color:var(--muted); font-size:0.95rem}
 .price{font-weight:700; color:var(--deep)}
 
@@ -118,13 +130,23 @@ body{font-family: 'Karla', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvet
 .story p{line-height:1.6; color:var(--deep)}
 
 .actions{max-width:var(--max-width); width:100%; display:flex; gap:12px; justify-content:center; margin:26px 0}
-.btn{padding:10px 18px; border-radius:10px; border:1px solid rgba(7,26,43,0.06); background:transparent; cursor:pointer; transition:transform 180ms ease, box-shadow 200ms ease, background 200ms}
-.btn:hover{ transform:translateY(-3px); box-shadow:0 12px 28px rgba(7,26,43,0.06)}
+.btn{padding:10px 18px; border-radius:10px; border:1px solid var(--panel-border, rgba(7,26,43,0.06)); background:transparent; cursor:pointer; transition:transform 180ms ease, box-shadow 200ms ease, background 200ms}
+.btn:hover{ transform:translateY(-3px); box-shadow:0 12px 28px var(--panel-border, rgba(7,26,43,0.06))}
 .btn.primary{ background:linear-gradient(180deg, var(--gold), #9a6f23); color:white; border:none; box-shadow:0 6px 20px rgba(184,135,47,0.12)}
 
 /* accessible: prefers reduced motion */
 @media (prefers-reduced-motion: reduce){
   .menu, .btn, .effects *{ transition: none !important; animation: none !important}
+}
+
+/* tint overlay used by JS to apply a visible background color per-deity */
+#tint-overlay{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0; /* behind .app which has z-index:1 */
+  transition: background 260ms ease, opacity 260ms ease;
+  mix-blend-mode:multiply;
 }
 
 /* Responsive */
@@ -153,7 +175,7 @@ body{font-family: 'Karla', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvet
   width:100%;
   max-height:86vh;
   overflow:hidden;
-  border:1px solid rgba(7,26,43,0.06);
+  border:1px solid var(--panel-border, rgba(7,26,43,0.06));
   display:flex;
   flex-direction:column;
 }
@@ -188,7 +210,7 @@ body{font-family: 'Karla', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvet
   background:var(--marble);
   border-radius:10px;
   box-shadow:0 12px 40px rgba(4,8,12,0.32);
-  border:1px solid rgba(7,26,43,0.06);
+  border:1px solid var(--panel-border, rgba(7,26,43,0.06));
   overflow:hidden;
   display:flex;
   flex-direction:column;

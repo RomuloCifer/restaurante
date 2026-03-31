@@ -2,7 +2,12 @@ export const DEUSES = [
   {
     id: 'zeus',
     name: 'Zeus Felino',
-    palette: { primary: '#0b2545', accent: '#c59a3d' },
+    palette: {
+      primary: '#0b2545',
+      accent: '#c59a3d',
+      // subtle color trio (weak / mid / light) used to tint UI accents/borders
+      soft: { weak: '#9B7D55', mid: '#745935', light: '#CAA775' }
+    },
     description: 'Senhor do céu e dos trovões, agora com bigodes majestosos.',
     story: [
       'Zeus Felino nasceu entre nuvens douradas, onde trovões ecoavam em ronronados. Dizem que quando ele salta, relâmpagos se transformam em brilhos de seda que aquecem a garganta dos felinos que descansam no Olimpo felpudo.',
@@ -23,7 +28,11 @@ export const DEUSES = [
   {
     id: 'athena',
     name: 'Athena Mia',
-    palette: { primary: '#12324b', accent: '#9aa7b0' },
+    palette: {
+      primary: '#12324b',
+      accent: '#9aa7b0',
+      soft: { weak: '#493116', mid: '#745027', light: '#9F7440' }
+    },
     description: 'Deusa da sabedoria com olhar perspicaz e patinhas de estrategista.',
     story: [
       'Athena Mia observa com calma as mesas do restaurante, como se desenhasse jogadas em um tabuleiro invisível. Ela ensina os filhotes a equilibrar pratos e taças, como uma mestre em equilibrios sutis.',
@@ -42,7 +51,11 @@ export const DEUSES = [
   {
     id: 'hades',
     name: 'Hades Miado',
-    palette: { primary: '#151515', accent: '#7f5a2a' },
+    palette: {
+      primary: '#151515',
+      accent: '#7f5a2a',
+      soft: { weak: '#0A0C0E', mid: '#1B2228', light: '#367294' }
+    },
     description: 'Guardião das sombras, apaixonado por sabores intensos.',
     story: [
       'Hades Miado reina sobre recantos silenciosos e gosta de convidar poucos para suas degustações. Seus pratos são densos, preparados com paciência e fumaça que anuncia lembranças antigas.',
