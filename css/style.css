@@ -34,9 +34,11 @@ body{
 /* left decorative area removed */
 
 .content{flex:1; padding:28px; display:flex; flex-direction:column; align-items:center}
-.hero{max-width:var(--max-width); width:100%; text-align:center; padding:22px 12px}
-.hero h1{font-family:'Cinzel', serif; color:var(--deep); margin:6px 0; font-size:2.6rem; letter-spacing:0.6px}
-.hero h1::after{ content: ''; display:block; width:84px; height:4px; margin:12px auto 0; border-radius:2px; background:linear-gradient(90deg, rgba(184,135,47,0.98), rgba(184,135,47,0.6)); box-shadow:0 4px 12px rgba(184,135,47,0.06)}
+.hero{max-width:var(--max-width); width:100%; padding:22px 12px}
+.hero-top{display:flex; align-items:center; justify-content:space-between; gap:16px}
+.hero h1{font-family:'Cinzel', serif; color:var(--deep); margin:6px 0; font-size:2.4rem; letter-spacing:0.6px; flex:1}
+.hero h1::after{ content: ''; display:block; width:84px; height:4px; margin:12px 0 0; border-radius:2px; background:linear-gradient(90deg, rgba(184,135,47,0.98), rgba(184,135,47,0.6)); box-shadow:0 4px 12px rgba(184,135,47,0.06)}
+.hero-logo{flex:0 0 auto; height:120px; width:auto}
 .hero .subtitle{color:var(--muted); margin:8px 0 0}
 
 .panel{display:flex; gap:24px; width:100%; max-width:var(--max-width); margin-top:18px}
@@ -154,6 +156,12 @@ body{
   .panel{flex-direction:column}
   .menu{width:100%}
   /* left decorative area removed */
+}
+
+@media(max-width:700px){
+  .hero-top{flex-direction:column; align-items:center}
+  .hero-logo{height:88px; margin-top:10px}
+  .hero h1{font-size:1.8rem; text-align:center}
 }
 
 /* Map modal / popup */
