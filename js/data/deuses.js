@@ -31,8 +31,8 @@ export const DEUSES = [
     ],
     drinks: [
       { name: 'Trovão Tônico', description: 'Tônica cítrica com toque de mel', price: 'R$ 22', image: 'trovao_tonico.png' },
-      { name: 'Néctar de Zeus', description: 'Coquetel dourado com especiarias', price: 'R$ 28' },
-      { name: 'Brisa Celeste', description: 'Mocktail refrescante', price: 'R$ 18' }
+      { name: 'Néctar de Zeus', description: 'Coquetel dourado com especiarias', price: 'R$ 28', image: 'nectar_de_zeus.png' },
+      { name: 'Brisa Celeste', description: 'Mocktail refrescante', price: 'R$ 18', image: 'brisa_celeste.png' }
     ]
   },
   {
@@ -60,10 +60,10 @@ export const DEUSES = [
     ],
     dishes: [
       { name: 'Ensopado da Estrategista', description: 'Ensopado de legumes com toque de ervas', price: 'R$ 42', image: 'ensopado_da_estrategista.png' },
-      { name: 'Croquetes de Oliva', description: 'Croquetes recheados com pasta de azeitona', price: 'R$ 36' }
+      { name: 'Croquetes de Oliva', description: 'Croquetes recheados com pasta de azeitona', price: 'R$ 36', image: 'croquetes_de_oliva.png' }
     ],
     drinks: [
-      { name: 'Elixir da Lira', description: 'Cidra suave com mel', price: 'R$ 16' },
+      { name: 'Elixir da Lira', description: 'Cidra suave com mel', price: 'R$ 16', image: 'elixir_da_lira.png' },
       { name: 'Chá de Biblioteca', description: 'Infusão relaxante', price: 'R$ 12', image: 'cha_de_biblioteca.png' }
     ]
   },
@@ -96,7 +96,7 @@ export const DEUSES = [
     ],
     drinks: [
       { name: 'Sussurro Noturno', description: 'Coquetel escuro com especiarias', price: 'R$ 30', image: 'sussurro_noturno.png' },
-      { name: 'Vinho das Profundezas', description: 'Taça de tinto encorpado', price: 'R$ 26' }
+      { name: 'Vinho das Profundezas', description: 'Taça de tinto encorpado', price: 'R$ 26', image: 'vinho_das_profundezas.png' }
     ]
   }
 ];
