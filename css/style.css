@@ -386,6 +386,42 @@ body{
 }
 .reservation__contact a:hover{ color:var(--gold); }
 
+.reservation__social{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:8px;
+}
+.reservation__social-link{
+  width:42px;
+  height:42px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  border:1px solid rgba(7,26,43,0.15);
+  background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(244,243,242,0.95));
+  color:var(--deep);
+  text-decoration:none;
+  transition:transform 180ms ease, box-shadow 200ms ease, border-color 200ms ease, color 180ms ease;
+}
+.reservation__social-link:hover{
+  transform:translateY(-2px);
+  border-color:rgba(184,135,47,0.7);
+  color:var(--gold);
+  box-shadow:0 10px 22px rgba(7,26,43,0.12);
+}
+.reservation__social-link:focus-visible{
+  outline:none;
+  border-color:rgba(184,135,47,0.85);
+  box-shadow:0 0 0 3px rgba(184,135,47,0.20);
+}
+.reservation__social-link svg{
+  width:22px;
+  height:22px;
+  fill:currentColor;
+}
+
 .reservation__form{
   display:flex;
   flex-direction:column;

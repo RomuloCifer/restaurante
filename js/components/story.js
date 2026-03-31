@@ -32,13 +32,6 @@ export function renderStories(container, deuses){
       sec.appendChild(pEl);
     }
 
-    // placeholder gallery note
-    const gallery = document.createElement('div');
-    gallery.className = 'story-gallery-note';
-    const noteText = document.createElement('em');
-    noteText.textContent = `Galeria e imagens de ${deus.name} podem ser adicionadas em /images`;
-    gallery.appendChild(noteText);
-    sec.appendChild(gallery);
 
     wrapper.appendChild(sec);
   });
