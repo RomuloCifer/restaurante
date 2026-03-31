@@ -155,6 +155,12 @@ export function attachHoverTriggerToLocationButton(){
   let locButton = null;
   actionButtons.forEach(b => { if(b.textContent && b.textContent.trim().toLowerCase().includes('localiz')) locButton = b; });
   if(!locButton) return;
+  locButton.addEventListener('click', () => {
+    if(locButton._showTimer){ clearTimeout(locButton._showTimer); locButton._showTimer = null; }
+    if(locButton._hideTimer){ clearTimeout(locButton._hideTimer); locButton._hideTimer = null; }
+    if(locButton._popup){ hideMapPopup(locButton._popup); }
+    openMapModal(locButton);
+  });
   locButton.addEventListener('mouseenter', () => { if(locButton._hideTimer){ clearTimeout(locButton._hideTimer); locButton._hideTimer = null; } locButton._showTimer = setTimeout(()=> showMapPopup(locButton), 180); });
   locButton.addEventListener('mouseleave', () => { if(locButton._showTimer){ clearTimeout(locButton._showTimer); locButton._showTimer = null; } if(locButton._popup){ locButton._popup._hideTimer = setTimeout(()=> hideMapPopup(locButton._popup), 240); } });
   locButton.addEventListener('focus', () => { locButton._showTimer = setTimeout(()=> showMapPopup(locButton), 100); });

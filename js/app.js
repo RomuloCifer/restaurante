@@ -106,6 +106,15 @@ function selectDeus(id, opts = { scrollToStory: false, fromObserver: false }){
   }
 }
 
+// Ver cardápio button → scroll to panel
+const heroBtnPrimary = document.querySelector('.hero-btn.primary');
+if(heroBtnPrimary){
+  heroBtnPrimary.addEventListener('click', () => {
+    const panel = document.getElementById('panel');
+    if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}
+
 // init
 // render all stories into the story area
 renderStories(storyEl, DEUSES);
