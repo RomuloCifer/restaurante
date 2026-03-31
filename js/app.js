@@ -4,9 +4,11 @@ import { renderStories } from './components/story.js';
 import { applyPalette, playEffectFor } from './lib/effects.js';
 import { attachHoverTriggerToLocationButton } from './lib/map.js';
 import { initDishHoverPreview } from './lib/dishPreview.js';
+import { initReservation } from './lib/reservation.js';
 
 const menuEl = document.getElementById('menu');
 const storyEl = document.getElementById('story');
+const reservationEl = document.getElementById('reservation');
 
 let current = DEUSES[0].id;
 
@@ -96,6 +98,13 @@ if(heroBtnPrimary){
   });
 }
 
+const heroBtnReserve = document.querySelector('[data-action="reserve"]');
+if(heroBtnReserve){
+  heroBtnReserve.addEventListener('click', () => {
+    if(reservationEl) reservationEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}
+
 // init
 // render all stories into the story area
 renderStories(storyEl, DEUSES);
@@ -103,6 +112,8 @@ renderStories(storyEl, DEUSES);
 selectDeus(current, { scrollToStory: false });
 // show dish/drink image preview on hover over item names
 initDishHoverPreview(menuEl);
+// init table reservation flow
+initReservation(reservationEl);
 // attach location button hover/click handlers
 attachHoverTriggerToLocationButton();
 

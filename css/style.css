@@ -74,7 +74,7 @@ body{
   z-index:1;
 }
 .hero-logo{
-  height:190px;
+  height:300px;
   width:auto;
   margin-bottom:18px;
   filter:drop-shadow(0 8px 36px rgba(184,135,47,0.30)) drop-shadow(0 2px 8px rgba(0,0,0,0.5));
@@ -345,6 +345,94 @@ body{
 .story h3{font-family:'Cinzel', serif; margin-top:0; font-weight:700}
 .story p{line-height:1.6; color:var(--deep)}
 
+.reservation{
+  width:100%;
+  max-width:var(--max-width);
+  margin:30px 0 8px;
+  padding:0 28px;
+}
+.reservation__inner{
+  background:var(--marble);
+  border:1px solid var(--panel-border, rgba(7,26,43,0.06));
+  border-radius:var(--card-radius);
+  box-shadow:0 10px 30px rgba(7,26,43,0.06);
+  padding:24px;
+  display:grid;
+  gap:22px;
+  grid-template-columns:1fr 1.2fr;
+}
+.reservation__eyebrow{
+  display:inline-block;
+  font-family:'Cinzel', serif;
+  color:var(--gold);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-size:0.82rem;
+  margin-bottom:8px;
+}
+.reservation__copy h2{
+  margin:0 0 10px;
+  font-family:'Cinzel', serif;
+}
+.reservation__copy p{
+  margin:0 0 10px;
+  color:var(--muted);
+  line-height:1.6;
+}
+.reservation__contact a{
+  color:var(--deep);
+  font-weight:700;
+  text-decoration:none;
+}
+.reservation__contact a:hover{ color:var(--gold); }
+
+.reservation__form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.reservation__form label{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-weight:700;
+  font-size:0.92rem;
+  color:var(--deep);
+}
+.reservation__form input{
+  border:1px solid rgba(7,26,43,0.16);
+  background:#fff;
+  border-radius:10px;
+  padding:11px 12px;
+  font:inherit;
+  color:var(--deep);
+}
+.reservation__form input:focus{
+  outline:none;
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(184,135,47,0.18);
+}
+.reservation__row{
+  display:grid;
+  gap:12px;
+  grid-template-columns:1fr 1fr;
+}
+.reservation__actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+.reservation__actions small{ color:var(--muted); }
+.reservation__message{
+  min-height:22px;
+  margin:4px 0 0;
+  font-weight:700;
+}
+.reservation__message[data-state="success"]{ color:#1f7a3f; }
+.reservation__message[data-state="error"]{ color:#a32929; }
+
 .actions{max-width:var(--max-width); width:100%; display:flex; gap:12px; justify-content:center; margin:26px 0; padding:0 28px}
 .btn{padding:10px 18px; border-radius:10px; border:1px solid var(--panel-border, rgba(7,26,43,0.06)); background:transparent; cursor:pointer; transition:transform 180ms ease, box-shadow 200ms ease, background 200ms}
 .btn:hover{ transform:translateY(-3px); box-shadow:0 12px 28px var(--panel-border, rgba(7,26,43,0.06))}
@@ -370,15 +458,19 @@ body{
   .panel{flex-direction:column}
   .menu{width:100%}
   /* left decorative area removed */
+  .reservation__inner{ grid-template-columns:1fr; }
 }
 
 @media(max-width:700px){
   .hero{min-height:auto; padding:60px 20px}
-  .hero-logo{height:170px}
+  .hero-logo{height:240px}
   .hero h1{font-size:1.75rem}
   .hero .subtitle{font-size:1rem}
   .hero-btn{padding:12px 24px; font-size:0.95rem}
   .dish-preview{ display:none; }
+  .reservation{padding:0 18px}
+  .reservation__inner{padding:16px}
+  .reservation__row{grid-template-columns:1fr}
 }
 
 /* Map modal / popup */
