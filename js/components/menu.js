@@ -20,7 +20,11 @@ export function renderMenu(container, deus){
     el.className = 'dish';
     const info = document.createElement('div');
     const name = document.createElement('strong');
+    name.className = 'dish-preview-trigger';
     name.textContent = d.name;
+    if(d.image){
+      name.dataset.dishPreviewSrc = `images/dishes/${d.image}`;
+    }
     const desc = document.createElement('div');
     desc.className = 'meta';
     desc.textContent = d.description;
@@ -45,7 +49,11 @@ export function renderMenu(container, deus){
     el.className = 'drink';
     const info = document.createElement('div');
     const name = document.createElement('strong');
+    name.className = 'dish-preview-trigger';
     name.textContent = d.name;
+    if(d.image){
+      name.dataset.dishPreviewSrc = `images/dishes/${d.image}`;
+    }
     const desc = document.createElement('div');
     desc.className = 'meta';
     desc.textContent = d.description;

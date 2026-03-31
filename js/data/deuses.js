@@ -8,7 +8,7 @@ export const DEUSES = [
       // subtle color trio (weak / mid / light) used to tint UI accents/borders
       soft: { weak: '#9B7D55', mid: '#745935', light: '#CAA775' }
     },
-    // background image filename (relative to /assets/) and per-deity text theme
+    // background image filename (relative to /images/deities/) and per-deity text theme
     background: {
       image: 'gato_zeus.png',
       overlay: 'linear-gradient(rgba(6,10,14,0.56), rgba(6,10,14,0.28))',
@@ -25,12 +25,12 @@ export const DEUSES = [
       'Seu paladar é exigente: prefere peixes grelhados com ervas que lembram o aroma das correntes de ar das montanhas. Suas festas são marcadas por canções noturnas e pratos compartilhados à luz das estrelas.'
     ],
     dishes: [
-      { name: 'Tábua Olímpica', description: 'Seleção de frutos do mar e queijos divinos', price: 'R$ 78' },
-      { name: 'Nuvem de Bacalhau', description: 'Bacalhau desfiado com azeite aromático', price: 'R$ 62' },
-      { name: 'Trufa do Monte', description: 'Trufas negras sobre creme de raiz', price: 'R$ 48' }
+      { name: 'Tábua Olímpica', description: 'Seleção de frutos do mar e queijos divinos', price: 'R$ 78', image: 'tabua_olimpica.png' },
+      { name: 'Nuvem de Bacalhau', description: 'Bacalhau desfiado com azeite aromático', price: 'R$ 62', image: 'nuvem_de_bacalhau.png' },
+      { name: 'Trufa do Monte', description: 'Trufas negras sobre creme de raiz', price: 'R$ 48', image: 'trufa_do_monte.png' }
     ],
     drinks: [
-      { name: 'Trovão Tônico', description: 'Tônica cítrica com toque de mel', price: 'R$ 22' },
+      { name: 'Trovão Tônico', description: 'Tônica cítrica com toque de mel', price: 'R$ 22', image: 'trovao_tonico.png' },
       { name: 'Néctar de Zeus', description: 'Coquetel dourado com especiarias', price: 'R$ 28' },
       { name: 'Brisa Celeste', description: 'Mocktail refrescante', price: 'R$ 18' }
     ]
@@ -59,12 +59,12 @@ export const DEUSES = [
       'Há quem diga que Athena Mia borda mapas das estrelas nas toalhas, para que os notívagos encontrem sempre o caminho de volta até a lareira.'
     ],
     dishes: [
-      { name: 'Ensopado da Estrategista', description: 'Ensopado de legumes com toque de ervas', price: 'R$ 42' },
+      { name: 'Ensopado da Estrategista', description: 'Ensopado de legumes com toque de ervas', price: 'R$ 42', image: 'ensopado_da_estrategista.png' },
       { name: 'Croquetes de Oliva', description: 'Croquetes recheados com pasta de azeitona', price: 'R$ 36' }
     ],
     drinks: [
       { name: 'Elixir da Lira', description: 'Cidra suave com mel', price: 'R$ 16' },
-      { name: 'Chá de Biblioteca', description: 'Infusão relaxante', price: 'R$ 12' }
+      { name: 'Chá de Biblioteca', description: 'Infusão relaxante', price: 'R$ 12', image: 'cha_de_biblioteca.png' }
     ]
   },
   {
@@ -91,11 +91,11 @@ export const DEUSES = [
       'Ele caminha entre mesas com passos suaves, ofertando pratos que lembram noites longas e conversas profundas. Sua presença é um convite à contemplação.'
     ],
     dishes: [
-      { name: 'Carne do Submundo', description: 'Cortes marcantes com redução de vinho', price: 'R$ 88' },
-      { name: 'Purê Obscuro', description: 'Purê de raízes defumadas', price: 'R$ 34' }
+      { name: 'Carne do Submundo', description: 'Cortes marcantes com redução de vinho', price: 'R$ 88', image: 'carne_do_submundo.png' },
+      { name: 'Purê Obscuro', description: 'Purê de raízes defumadas', price: 'R$ 34', image: 'pure_obscuro.png' }
     ],
     drinks: [
-      { name: 'Sussurro Noturno', description: 'Coquetel escuro com especiarias', price: 'R$ 30' },
+      { name: 'Sussurro Noturno', description: 'Coquetel escuro com especiarias', price: 'R$ 30', image: 'sussurro_noturno.png' },
       { name: 'Vinho das Profundezas', description: 'Taça de tinto encorpado', price: 'R$ 26' }
     ]
   }

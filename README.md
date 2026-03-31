@@ -12,10 +12,10 @@ Modificar e estender
 - Lógica de montagem: `js/app.js` — popula as patinhas e faz a troca entre deuses.
 - Estilos: `css/style.css` — temas e layout (usar variáveis CSS para cores principais).
 
-Assets
-- `assets/patinhas.svg` — ícone usado na navegação esquerda. Você pode substituir por `patinhas.png` com o mesmo nome caso prefira PNG.
+Images
+- `images/patinhas.svg` — ícone usado na navegação esquerda. Você pode substituir por `patinhas.png` com o mesmo nome caso prefira PNG.
 
 Próximos passos sugeridos
-- Adicionar imagens por deus em `assets/` e estender `deuses.js` com campos de imagens.
+- Adicionar imagens por deus em `images/` e estender `deuses.js` com campos de imagens.
 - Tornar o cardápio dinâmico carregando JSON externo se desejar edição sem deploy.
 - Adicionar formulários de reserva reais (integração backend) ou usar um serviço externo.

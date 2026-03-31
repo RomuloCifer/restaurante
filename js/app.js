@@ -3,6 +3,7 @@ import { renderMenu } from './components/menu.js';
 import { renderStories } from './components/story.js';
 import { applyPalette, playEffectFor } from './lib/effects.js';
 import { attachHoverTriggerToLocationButton } from './lib/map.js';
+import { initDishHoverPreview } from './lib/dishPreview.js';
 
 const menuEl = document.getElementById('menu');
 const storyEl = document.getElementById('story');
@@ -23,7 +24,7 @@ function setStoryBackground(id){
   const overlay = bg.overlay || 'linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.04))';
 
   if(file){
-    const url = `assets/${file}`;
+    const url = `images/deities/${file}`;
     wrap.style.backgroundImage = `${overlay}, url('${url}')`;
     const img = new Image();
     img.src = url;
@@ -100,6 +101,8 @@ if(heroBtnPrimary){
 renderStories(storyEl, DEUSES);
 // render menu for initial selection
 selectDeus(current, { scrollToStory: false });
+// show dish/drink image preview on hover over item names
+initDishHoverPreview(menuEl);
 // attach location button hover/click handlers
 attachHoverTriggerToLocationButton();
 
@@ -131,6 +134,3 @@ window.addEventListener('keydown', (e)=>{
 });
 
 // Map modal & popup logic moved to ./lib/map.js
-
-// initialize hover trigger (map) — implementation in js/lib/map.js
-attachHoverTriggerToLocationButton();
