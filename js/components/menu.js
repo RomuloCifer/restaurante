@@ -18,7 +18,19 @@ export function renderMenu(container, deus){
   deus.dishes.forEach(d => {
     const el = document.createElement('div');
     el.className = 'dish';
-    el.innerHTML = `<div><strong>${d.name}</strong><div class="meta">${d.description}</div></div><div class="price">${d.price}</div>`;
+    const info = document.createElement('div');
+    const name = document.createElement('strong');
+    name.textContent = d.name;
+    const desc = document.createElement('div');
+    desc.className = 'meta';
+    desc.textContent = d.description;
+    info.appendChild(name);
+    info.appendChild(desc);
+    const price = document.createElement('div');
+    price.className = 'price';
+    price.textContent = d.price;
+    el.appendChild(info);
+    el.appendChild(price);
     container.appendChild(el);
   });
 
@@ -31,7 +43,19 @@ export function renderMenu(container, deus){
   deus.drinks.forEach(d => {
     const el = document.createElement('div');
     el.className = 'drink';
-    el.innerHTML = `<div><strong>${d.name}</strong><div class="meta">${d.description}</div></div><div class="price">${d.price}</div>`;
+    const info = document.createElement('div');
+    const name = document.createElement('strong');
+    name.textContent = d.name;
+    const desc = document.createElement('div');
+    desc.className = 'meta';
+    desc.textContent = d.description;
+    info.appendChild(name);
+    info.appendChild(desc);
+    const price = document.createElement('div');
+    price.className = 'price';
+    price.textContent = d.price;
+    el.appendChild(info);
+    el.appendChild(price);
     container.appendChild(el);
   });
 }

@@ -8,6 +8,16 @@ export const DEUSES = [
       // subtle color trio (weak / mid / light) used to tint UI accents/borders
       soft: { weak: '#9B7D55', mid: '#745935', light: '#CAA775' }
     },
+    // background image filename (relative to /assets/) and per-deity text theme
+    background: {
+      image: 'gato_zeus.png',
+      overlay: 'linear-gradient(rgba(6,10,14,0.56), rgba(6,10,14,0.28))',
+      titleColor: '#fffdf9',
+      textColor: '#fbf9f6',
+      titleBg: 'linear-gradient(rgba(10,14,20,0.48), rgba(10,14,20,0.18))',
+      titleShadow: '0 10px 30px rgba(4,8,12,0.5)',
+      textShadow: '0 2px 10px rgba(0,0,0,0.45)'
+    },
     description: 'Senhor do céu e dos trovões, agora com bigodes majestosos.',
     story: [
       'Zeus Felino nasceu entre nuvens douradas, onde trovões ecoavam em ronronados. Dizem que quando ele salta, relâmpagos se transformam em brilhos de seda que aquecem a garganta dos felinos que descansam no Olimpo felpudo.',
@@ -33,6 +43,15 @@ export const DEUSES = [
       accent: '#9aa7b0',
       soft: { weak: '#493116', mid: '#745027', light: '#9F7440' }
     },
+    background: {
+      image: 'gato_athena.png',
+      overlay: 'linear-gradient(rgba(8,12,18,0.52), rgba(8,12,18,0.22))',
+      titleColor: '#fffdf6',
+      textColor: '#faf8f5',
+      titleBg: 'linear-gradient(rgba(12,16,22,0.46), rgba(12,16,22,0.18))',
+      titleShadow: '0 10px 30px rgba(6,10,14,0.45)',
+      textShadow: '0 2px 10px rgba(0,0,0,0.42)'
+    },
     description: 'Deusa da sabedoria com olhar perspicaz e patinhas de estrategista.',
     story: [
       'Athena Mia observa com calma as mesas do restaurante, como se desenhasse jogadas em um tabuleiro invisível. Ela ensina os filhotes a equilibrar pratos e taças, como uma mestre em equilibrios sutis.',
@@ -55,6 +74,15 @@ export const DEUSES = [
       primary: '#151515',
       accent: '#7f5a2a',
       soft: { weak: '#0A0C0E', mid: '#1B2228', light: '#367294' }
+    },
+    background: {
+      image: 'gato_hades.png',
+      overlay: 'linear-gradient(rgba(12,6,24,0.36), rgba(12,6,24,0.24))',
+      titleColor: '#fbf9f8',
+      textColor: '#f7f5f4',
+      titleBg: 'linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.06))',
+      titleShadow: '0 8px 26px rgba(0,0,0,0.6)',
+      textShadow: '0 1px 6px rgba(0,0,0,0.4)'
     },
     description: 'Guardião das sombras, apaixonado por sabores intensos.',
     story: [

@@ -17,54 +17,34 @@ let current = DEUSES[0].id;
 function setStoryBackground(id){
   const wrap = storyEl.querySelector('.story-wrap');
   if(!wrap) return;
-  // mapping id -> filename (expects files in /assets)
-  const mapping = {
-    zeus: 'gato_zeus.png',
-    athena: 'gato_athena.png',
-    hades: 'gato_hades.png'
-  };
-  const file = mapping[id] || '';
-  // choose an overlay to keep text readable; adjust per deity
-  const overlays = {
-    // use a darker overlay for light backgrounds so white text reads well
-    zeus: 'linear-gradient(rgba(6,10,14,0.56), rgba(6,10,14,0.28))',
-    athena: 'linear-gradient(rgba(8,12,18,0.52), rgba(8,12,18,0.22))',
-    hades: 'linear-gradient(rgba(12,6,24,0.36), rgba(12,6,24,0.24))'
-  };
-  const overlay = overlays[id] || 'linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.04))';
+  const deus = DEUSES.find(d => d.id === id);
+  const bg = (deus && deus.background) || {};
+  const file = bg.image || '';
+  const overlay = bg.overlay || 'linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.04))';
+
   if(file){
-    // set as layered background: overlay then image
-    // paths for inline style are relative to the document (index.html), so use 'assets/...'
     const url = `assets/${file}`;
     wrap.style.backgroundImage = `${overlay}, url('${url}')`;
-
-    // preload image and log error if missing (helps debug local file issues)
     const img = new Image();
     img.src = url;
-    img.onload = () => {
-      // image loaded successfully
-      // console.debug(`Story background loaded: ${url}`);
-    };
     img.onerror = () => {
-      console.warn(`Could not load story background: ${url} — please verify the file exists at restaurante/${url}`);
+      console.warn(`Could not load story background: ${url} — verify the file exists at restaurante/${url}`);
     };
   } else {
     wrap.style.backgroundImage = '';
   }
 
-  // set per-deity story text & title color for readability
-  const titleColors = {
-    zeus: { title: '#fffdf9', text: '#fbf9f6', bg: 'linear-gradient(rgba(10,14,20,0.48), rgba(10,14,20,0.18))', shadow: '0 10px 30px rgba(4,8,12,0.5)', textShadow: '0 2px 10px rgba(0,0,0,0.45)' },
-    athena: { title: '#fffdf6', text: '#faf8f5', bg: 'linear-gradient(rgba(12,16,22,0.46), rgba(12,16,22,0.18))', shadow: '0 10px 30px rgba(6,10,14,0.45)', textShadow: '0 2px 10px rgba(0,0,0,0.42)' },
-    hades: { title: '#fbf9f8', text: '#f7f5f4', bg: 'linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.06))', shadow: '0 8px 26px rgba(0,0,0,0.6)', textShadow: '0 1px 6px rgba(0,0,0,0.4)' }
-  };
-
-  const c = titleColors[id] || { title: 'var(--deep)', text: 'var(--deep)', bg: 'rgba(255,255,255,0.02)', shadow: '0 4px 18px rgba(7,26,43,0.06)', textShadow: 'none' };
-  wrap.style.setProperty('--story-title-color', c.title);
-  wrap.style.setProperty('--story-text-color', c.text);
-  wrap.style.setProperty('--story-title-bg', c.bg);
-  wrap.style.setProperty('--story-title-shadow', c.shadow);
-  wrap.style.setProperty('--story-text-shadow', c.textShadow);
+  // set per-deity story text & title color for readability (sourced from deuses.js)
+  const titleColor  = bg.titleColor  || 'var(--deep)';
+  const textColor   = bg.textColor   || 'var(--deep)';
+  const titleBg     = bg.titleBg     || 'rgba(255,255,255,0.02)';
+  const titleShadow = bg.titleShadow || '0 4px 18px rgba(7,26,43,0.06)';
+  const textShadow  = bg.textShadow  || 'none';
+  wrap.style.setProperty('--story-title-color', titleColor);
+  wrap.style.setProperty('--story-text-color', textColor);
+  wrap.style.setProperty('--story-title-bg', titleBg);
+  wrap.style.setProperty('--story-title-shadow', titleShadow);
+  wrap.style.setProperty('--story-text-shadow', textShadow);
 }
 
 // playEffectFor moved to ./lib/effects.js
@@ -120,6 +100,8 @@ if(heroBtnPrimary){
 renderStories(storyEl, DEUSES);
 // render menu for initial selection
 selectDeus(current, { scrollToStory: false });
+// attach location button hover/click handlers
+attachHoverTriggerToLocationButton();
 
 // observe which story section is mostly visible and update selected deus accordingly
 const observer = new IntersectionObserver((entries)=>{

@@ -52,9 +52,7 @@ export function applyPalette(deus){
   }catch(e){ /* ignore when document.body not available */ }
 
   // debug: log the applied palette so developer can confirm in console
-  if(typeof console !== 'undefined' && console.debug){
-    console.debug('applyPalette:', deus.id || '(unknown)', { weak, mid, light, highlight });
-  }
+  // console.debug('applyPalette:', deus.id || '(unknown)', { weak, mid, light, highlight });
 }
 
 // play a short, per-deity visual effect in the effects overlay

@@ -151,9 +151,7 @@ export function hideMapPopup(popup){
 }
 
 export function attachHoverTriggerToLocationButton(){
-  const actionButtons = document.querySelectorAll('.actions .btn');
-  let locButton = null;
-  actionButtons.forEach(b => { if(b.textContent && b.textContent.trim().toLowerCase().includes('localiz')) locButton = b; });
+  const locButton = document.querySelector('[data-action="location"]');
   if(!locButton) return;
   locButton.addEventListener('click', () => {
     if(locButton._showTimer){ clearTimeout(locButton._showTimer); locButton._showTimer = null; }

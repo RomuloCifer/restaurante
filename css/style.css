@@ -252,7 +252,8 @@ body{
   box-shadow:var(--story-title-shadow);
   text-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
-.story .story-section{ padding:14px 6px 18px 14px; border-left:4px solid rgba(7,26,43,0.05); margin-bottom:8px}
+.story .story-section{ padding:12px 6px 18px 14px; border-left:4px solid rgba(7,26,43,0.05); border-bottom:1px solid rgba(11,37,69,0.03); margin-bottom:8px}
+.story-gallery-note{ margin-top:10px; color:var(--muted) }
 
 /* Menu update animations (subtle but visible) */
 .menu{

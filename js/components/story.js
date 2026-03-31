@@ -8,8 +8,6 @@ export function renderStories(container, deuses){
     const sec = document.createElement('section');
     sec.className = 'story-section';
     sec.dataset.id = deus.id;
-    sec.style.padding = '12px 6px';
-    sec.style.borderBottom = '1px solid rgba(11,37,69,0.03)';
 
     const title = document.createElement('h3');
     title.textContent = deus.name;
@@ -36,8 +34,10 @@ export function renderStories(container, deuses){
 
     // placeholder gallery note
     const gallery = document.createElement('div');
-    gallery.style.marginTop = '10px';
-    gallery.innerHTML = `<em style="color:var(--muted)">Galeria e imagens de ${deus.name} podem ser adicionadas em /assets</em>`;
+    gallery.className = 'story-gallery-note';
+    const noteText = document.createElement('em');
+    noteText.textContent = `Galeria e imagens de ${deus.name} podem ser adicionadas em /assets`;
+    gallery.appendChild(noteText);
     sec.appendChild(gallery);
 
     wrapper.appendChild(sec);
