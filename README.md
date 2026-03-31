@@ -1,21 +1,86 @@
-# Catheons — restaurante (estrutura modular)
+# Catheons - Projeto SENAC (Desafio com IA)
 
-Arquivos criados para um site modularizado onde cada "Deus" (tema) tem seu próprio cardápio e bebidas.
+Este projeto foi desenvolvido para uma atividade do SENAC com um desafio objetivo: criar um site completo em 48 horas usando inteligencia artificial como apoio no processo de criacao.
 
-Como usar
-- Abra `restaurante/index.html` em um navegador (basta dar duplo clique) — o site usa ES modules, portanto abrir via file:// funciona na maioria dos navegadores modernos.
+O tema escolhido foi um restaurante mitologico felino, com foco em experiencia visual, interacoes interessantes, paleta de cores harmoniosa e um estilo elegante que guie o usuario de forma natural ate a vontade de fazer uma reserva.
 
-Modificar e estender
-- Dados dos deuses: `js/data/deuses.js` — adicione/remova deuses, pratos e bebidas aqui.
-- Componente de menu: `js/components/menu.js` — renderiza pratos e bebidas.
-- Componente de história: `js/components/story.js` — renderiza a história e espaço para galeria.
-- Lógica de montagem: `js/app.js` — popula as patinhas e faz a troca entre deuses.
-- Estilos: `css/style.css` — temas e layout (usar variáveis CSS para cores principais).
+## Objetivo do Projeto
 
-Images
-- `images/patinhas.svg` — ícone usado na navegação esquerda. Você pode substituir por `patinhas.png` com o mesmo nome caso prefira PNG.
+Criar uma experiencia de marca memoravel para um restaurante tematico ficticio, unindo:
 
-Próximos passos sugeridos
-- Adicionar imagens por deus em `images/` e estender `deuses.js` com campos de imagens.
-- Tornar o cardápio dinâmico carregando JSON externo se desejar edição sem deploy.
-- Adicionar formulários de reserva reais (integração backend) ou usar um serviço externo.
+- identidade visual forte
+- storytelling para cada "deus"
+- cardapios dinamicos por tema
+- microinteracoes que valorizam a navegacao
+
+## Funcionalidades Implementadas
+
+- Troca dinamica de tema por divindade (cores, menu e historia)
+- Efeitos visuais de transicao por personagem
+- Background da historia configurado por dados
+- Preview de imagem no hover de pratos e bebidas
+- Popup e modal de localizacao com acessibilidade basica (tecla Esc e foco)
+- Navegacao por teclado (setas esquerda/direita)
+
+## Estrutura do Projeto
+
+```text
+.
+|- index.html
+|- css/
+|  \- style.css
+|- images/
+|  |- deities/
+|  |- dishes/
+|  \- main_logo.png
+\- js/
+	|- app.js
+	|- components/
+	|  |- menu.js
+	|  \- story.js
+	|- data/
+	|  \- deuses.js
+	\- lib/
+		|- dishPreview.js
+		|- effects.js
+		\- map.js
+```
+
+## Como Executar
+
+1. Abra o arquivo `index.html` no navegador.
+2. Se o navegador bloquear modulos ES no modo `file://`, rode com um servidor local simples.
+
+Exemplo com VS Code:
+
+1. Instale a extensao Live Server.
+2. Clique com o botao direito em `index.html`.
+3. Selecione "Open with Live Server".
+
+## Como Personalizar Rapido
+
+- Deuses, pratos e bebidas: `js/data/deuses.js`
+- Render do menu: `js/components/menu.js`
+- Render das historias: `js/components/story.js`
+- Orquestracao da aplicacao: `js/app.js`
+- Efeitos e paleta: `js/lib/effects.js`
+- Hover de imagens dos pratos: `js/lib/dishPreview.js`
+- Localizacao (popup/modal): `js/lib/map.js`
+- Estilos globais: `css/style.css`
+
+## Boas Praticas Adotadas
+
+- Separacao por responsabilidade (dados, componentes e bibliotecas)
+- Reaproveitamento de logica em modulos dedicados
+- CSS com variaveis para facilitar evolucao de tema
+- Estrutura preparada para adicionar novos "deuses" sem reescrever a aplicacao
+
+## Proximos Passos
+
+- Integrar botao de reserva com formulario real
+- Adicionar analytics para medir interesse em pratos e cliques de reserva
+- Expandir acessibilidade (ARIA mais detalhado e navegacao por teclado em todos os pontos)
+
+---
+
+Projeto academico desenvolvido no SENAC.
